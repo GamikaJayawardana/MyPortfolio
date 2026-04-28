@@ -156,8 +156,28 @@
 }
 
 @media (max-width: 768px) {
+  .education {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 0;
+  }
+  .content {
+    max-height: none;
+  }
+  .layout {
+    padding-right: 0;
+  }
   .itemHeader {
     flex-direction: column;
     gap: 0.25rem;
+  }
+  .itemDegree {
+    font-size: 1.1rem;
+  }
+  .itemInstitution {
+    font-size: 0.9rem;
+  }
+  .itemDate {
+    font-size: 0.8rem;
   }
 }

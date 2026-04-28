@@ -219,6 +219,12 @@
 }
 
 @media (max-width: 768px) {
+  .skills {
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
   .watermark {
     font-size: clamp(4rem, 25vw, 8rem);
     -webkit-text-stroke: 1px rgba(201, 168, 76, 0.2);
@@ -239,5 +245,6 @@
 
   .skillCard {
     padding: 1rem 0.5rem;
+    width: 120px;
   }
 }

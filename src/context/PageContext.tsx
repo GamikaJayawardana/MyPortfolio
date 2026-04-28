@@ -37,6 +37,18 @@ export function PageProvider({ children }: { children: React.ReactNode }) {
   const THROTTLE = 950;
 
   const goToPage = useCallback((index: number) => {
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+      if (index >= 0 && index < PAGE_SECTIONS.length) {
+        const sectionId = PAGE_SECTIONS[index].id;
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setCurrentPage(index);
+        }
+      }
+      return;
+    }
+
     if (!canNav.current) return;
     if (index < 0 || index >= PAGE_SECTIONS.length) return;
     if (index === curRef.current) return;

@@ -193,3 +193,23 @@
 .submitBtn:hover {
   background: var(--gold, #c9a84c);
 }
+
+@media (max-width: 768px) {
+  .contact {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 0;
+  }
+  .content {
+    max-height: none;
+    width: 90%;
+  }
+  .layout {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+  }
+  .formCol {
+    padding: 1.5rem;
+  }
+}

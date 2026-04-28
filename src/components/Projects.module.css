@@ -194,3 +194,24 @@
   background: var(--gold, #c9a84c);
   color: #000;
 }
+
+@media (max-width: 768px) {
+  .projects {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 0;
+  }
+  .content {
+    max-height: none;
+    width: 90%;
+  }
+  .card {
+    min-width: 85vw;
+    max-width: 85vw;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

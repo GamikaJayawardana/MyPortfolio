@@ -19,6 +19,14 @@ html, body {
   overflow: hidden; /* Full-page scroll — no native scrolling */
 }
 
+@media (max-width: 768px) {
+  html, body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+  }
+}
+
 body {
   background: var(--dark);
   color: var(--text-primary);

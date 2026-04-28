@@ -137,11 +137,27 @@
 
 /* ── Mobile ────────────────────────────────────── */
 @media (max-width: 768px) {
-  .dots {
-    right: 0.75rem;
+  .outer {
+    position: static;
+    overflow: visible;
   }
-
-  .counter {
+  
+  .track {
+    transform: none !important;
+    transition: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .page {
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: visible;
+  }
+  
+  .dots, .sweep, .counter {
     display: none;
   }
 }

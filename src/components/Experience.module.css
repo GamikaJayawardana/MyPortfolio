@@ -172,8 +172,29 @@
 }
 
 @media (max-width: 768px) {
+  .experience {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 0;
+  }
+  .content {
+    max-height: none;
+  }
+  .layout {
+    gap: 2.5rem;
+    padding-right: 0;
+  }
   .itemHeader {
     flex-direction: column;
     gap: 0.25rem;
+  }
+  .itemRole {
+    font-size: 1.1rem;
+  }
+  .itemCompany {
+    font-size: 0.9rem;
+  }
+  .itemDate {
+    font-size: 0.8rem;
   }
 }
