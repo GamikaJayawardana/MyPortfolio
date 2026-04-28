@@ -48,15 +48,19 @@ export default function Skills() {
 
   return (
     <section id="skills" className={styles.skills}>
-      {/* Giant watermark */}
-      <div className={styles.watermark} aria-hidden="true">
-        SKILLS
-      </div>
+
 
       <div className={styles.content}>
         <div className={styles.header}>
           <p className={styles.nameTag}>Technologies &amp; Tools</p>
           <h2 className={styles.title}>MY EXPERTISE</h2>
+          <p className={styles.summary}>
+            Passionate Electronics &amp; Computer Science undergraduate at the University of Kelaniya specializing in AI/ML
+            Engineering and Full-Stack Development. Proven track record in architecting enterprise-grade web platforms,
+            Agentic AI workflows, and specialized ML models alongside high-performance browser extensions. Expert in
+            Computer Vision, Large Language Models (LLMs), and Scalable Microservices, with a unique technical
+            foundation in Embedded Systems and UI/UX Design.
+          </p>
         </div>
 
         <div className={styles.layout}>

@@ -23,9 +23,9 @@ export default function Hero() {
             View My Projects
           </a>
           <a
-            href="/resume.pdf"
+            href="/CV/GamikaJayawardhana.pdf"
             className={styles.btnOutline}
-            download
+            download="GamikaJayawardhana_CV.pdf"
           >
             Download Resume
           </a>

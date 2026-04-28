@@ -6,8 +6,10 @@ export const PAGE_SECTIONS = [
   { id: "home",       label: "Home"       },
   { id: "skills",     label: "Skills"     },
   { id: "projects",   label: "Projects"   },
-  { id: "education",  label: "Education"  },
   { id: "experience", label: "Experience" },
+  { id: "volunteering", label: "Volunteering" },
+  { id: "education",  label: "Education"  },
+  { id: "certificates", label: "Certificates" },
   { id: "contact",    label: "Contact"    },
 ] as const;
 

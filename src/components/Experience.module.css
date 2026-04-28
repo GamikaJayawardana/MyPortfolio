@@ -1,0 +1,179 @@
+.experience {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.content {
+  width: 90%;
+  max-width: 1400px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nameTag {
+  color: var(--gold, #c9a84c);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  overflow-y: auto;
+  padding-right: 1rem;
+  /* hide scrollbar */
+  scrollbar-width: none;
+}
+.layout::-webkit-scrollbar {
+  display: none;
+}
+
+.timelineSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  color: var(--gold, #c9a84c);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid rgba(201, 168, 76, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 5px; /* align with center of node (12px width / 2 - 1px) */
+  width: 2px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+/* Node marker */
+.timelineNode {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0d0d0d;
+  border: 2px solid var(--gold, #c9a84c);
+  z-index: 2;
+}
+
+.timelineContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.itemRole {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.itemDate {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+}
+
+.itemCompany {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.itemPoints {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itemPoints li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.itemPoints li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gold, #c9a84c);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .itemHeader {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
