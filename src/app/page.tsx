@@ -9,6 +9,7 @@ import Certificates from "@/components/Certificates";
 import Experience from "@/components/Experience";
 import Volunteering from "@/components/Volunteering";
 import Contact from "@/components/Contact";
+import MobileFooter from "@/components/MobileFooter";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           <Contact key="contact" />,
         ]}
       </FullPageScroll>
+      <MobileFooter />
     </PageProvider>
   );
 }

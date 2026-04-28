@@ -1,0 +1,57 @@
+.footer {
+  display: none; /* Hidden on desktop */
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+  z-index: 50;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.topBtn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  background: var(--gold, #c9a84c);
+  color: #000;
+  border: none;
+  border-radius: 4px; /* Brutalist slight rounding instead of circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.topBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.topBtn svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    display: block;
+  }
+}

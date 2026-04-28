@@ -195,18 +195,23 @@
     -webkit-text-stroke: 1px rgba(201, 168, 76, 0.3);
   }
 
+  .nameTag {
+    display: none;
+  }
+
   .content {
     padding: 0 1.25rem 4rem;
   }
 
   .ctas {
     flex-direction: column;
-    gap: 0.625rem;
+    gap: 0.4rem;
   }
 
   .btnOutline {
     text-align: center;
-    padding: 0.85rem 1.5rem;
+    padding: 0.4rem 1.25rem;
+    font-size: 0.75rem;
   }
 
   .scrollIndicator {
