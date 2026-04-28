@@ -257,4 +257,9 @@
   .skillName {
     font-size: 0.6rem;
   }
+
+  .btnOutline {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+  }
 }
