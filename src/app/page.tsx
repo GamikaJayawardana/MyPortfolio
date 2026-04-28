@@ -1,25 +1,24 @@
-import { CanvasBackground } from "@/components/CanvasBackground";
-import { Hero } from "@/components/Hero";
-import { About, SkillsOrbit, ExperienceTimeline, EducationTimeline, FeaturedProjects, Certifications } from "@/components/Sections";
-import { ContactSection } from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
-import { ReactLenis } from "lenis/react";
+import { PageProvider } from "@/context/PageContext";
+import Navbar from "@/components/Navbar";
+import FullPageScroll from "@/components/FullPageScroll";
+import Hero from "@/components/Hero";
+import Skills from "@/components/Skills";
+import PlaceholderSection from "@/components/PlaceholderSection";
 
 export default function Home() {
   return (
-    <ReactLenis root options={{ lerp: 0.08, smoothWheel: true }}>
-      <CanvasBackground />
-      <main className="flex flex-col relative w-full overflow-hidden">
-        <Hero />
-        <About />
-        <SkillsOrbit />
-        <ExperienceTimeline />
-        <EducationTimeline />
-        <FeaturedProjects />
-        <Certifications />
-        <ContactSection />
-        <Footer />
-      </main>
-    </ReactLenis>
+    <PageProvider>
+      <Navbar />
+      <FullPageScroll>
+        {[
+          <Hero key="home" />,
+          <Skills key="skills" />,
+          <PlaceholderSection key="projects" title="Projects" subtitle="What I've built" index={2} />,
+          <PlaceholderSection key="education" title="Education" subtitle="My academic journey" index={3} />,
+          <PlaceholderSection key="experience" title="Experience" subtitle="Where I've worked" index={4} />,
+          <PlaceholderSection key="contact" title="Contact" subtitle="Let's work together" index={5} />,
+        ]}
+      </FullPageScroll>
+    </PageProvider>
   );
 }

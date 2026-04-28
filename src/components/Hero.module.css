@@ -1,0 +1,215 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* ── Background Images ─────────────────────────────────── */
+.bgDesktop,
+.bgMobile {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.bgDesktop {
+  background-image: url("/HeroBG-3.png");
+}
+
+.bgMobile {
+  display: none;
+  background-image: url("/HeroBGMob.png");
+  background-position: center top;
+}
+
+/* ── Gradient Overlay ──────────────────────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.2) 30%,
+      rgba(0, 0, 0, 0.5) 65%,
+      rgba(0, 0, 0, 0.9) 100%),
+    linear-gradient(to right,
+      rgba(0, 0, 0, 0.75) 0%,
+      transparent 20%);
+}
+
+/* ── Giant Name Watermark ──────────────────────────────── */
+.nameWatermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: calc(var(--nav-height, 72px) + 1rem);
+  pointer-events: none;
+  user-select: none;
+}
+
+.watermarkLine1,
+.watermarkLine2 {
+  display: block;
+  font-size: clamp(4rem, 11vw, 10rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(201, 168, 76, 0.35);
+  text-stroke: 1.5px rgba(201, 168, 76, 0.35);
+  padding-left: 2.5rem;
+}
+
+/* ── Bottom Content ────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 0 2.5rem 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nameTag {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--gold, #c9a84c);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.625rem;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 2rem;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+/* ── CTA Buttons ───────────────────────────────────────── */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btnOutline {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 2px;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btnOutline:hover {
+  background: var(--gold, #c9a84c);
+  border-color: var(--gold, #c9a84c);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* ── Scroll Indicator ──────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--gold, #c9a84c));
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ── Mobile ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .bgDesktop {
+    display: none;
+  }
+
+  .bgMobile {
+    display: block;
+  }
+
+  .overlay {
+    background:
+      linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.1) 25%,
+        rgba(0, 0, 0, 0.55) 60%,
+        rgba(0, 0, 0, 0.95) 100%);
+  }
+
+  .nameWatermark {
+    padding-top: calc(var(--nav-height, 72px) + 0.5rem);
+  }
+
+  .watermarkLine1,
+  .watermarkLine2 {
+    font-size: clamp(2.5rem, 14vw, 5rem);
+    padding-left: 1.25rem;
+    -webkit-text-stroke: 1px rgba(201, 168, 76, 0.3);
+  }
+
+  .content {
+    padding: 0 1.25rem 4rem;
+  }
+
+  .ctas {
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .btnOutline {
+    text-align: center;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+}
