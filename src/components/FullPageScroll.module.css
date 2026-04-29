@@ -160,6 +160,16 @@
     width: 100%;
     position: relative;
     overflow: visible;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .pageInactive, .pageActive {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto !important;
   }
   
   .dots, .sweep, .counter {

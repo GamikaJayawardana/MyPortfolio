@@ -195,6 +195,11 @@
   color: #000;
 }
 
+/* ── Mobile Floating Controls ── */
+.mobileControls {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .projects {
     height: auto;
@@ -213,5 +218,76 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel {
+    scrollbar-width: none;
+  }
+
+  .mobileControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .ctrlBtn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .ctrlBtn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .ctrlBtn:active {
+    background: var(--gold, #c9a84c);
+    border-color: var(--gold, #c9a84c);
+    color: #000;
+  }
+
+  .ctrlBtn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .progressRing {
+    width: 40px;
+    height: 40px;
+  }
+
+  .circularChart {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .circleBg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 2;
+  }
+
+  .circle {
+    fill: none;
+    stroke-width: 2;
+    stroke: var(--gold, #c9a84c);
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.3s ease;
   }
 }

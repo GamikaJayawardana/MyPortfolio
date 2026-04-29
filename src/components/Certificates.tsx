@@ -1,10 +1,33 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { certificates } from "@/data/certificates";
 import styles from "./Certificates.module.css";
 
 export default function Certificates() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+    const max = scrollWidth - clientWidth;
+    setProgress(max <= 0 ? 0 : scrollLeft / max);
+  };
+
+  useEffect(() => {
+    handleScroll(); // Init progress
+    window.addEventListener("resize", handleScroll);
+    return () => window.removeEventListener("resize", handleScroll);
+  }, []);
+
+  const scrollByAmount = (amount: number) => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: amount, behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="certificates" className={styles.certificates}>
       <div className={styles.content}>
@@ -13,7 +36,7 @@ export default function Certificates() {
           <h2 className={styles.title}>CERTIFICATES</h2>
         </div>
 
-        <div className={styles.carousel}>
+        <div className={styles.carousel} ref={carouselRef} onScroll={handleScroll}>
           {certificates.map((cert) => (
             <div key={cert.id} className={styles.card}>
               <div className={styles.imageWrap}>
@@ -42,6 +65,35 @@ export default function Certificates() {
             </div>
           ))}
         </div>
+
+        {/* Mobile Floating Controls */}
+        <div className={styles.mobileControls}>
+          <button 
+            className={styles.ctrlBtn} 
+            onClick={() => scrollByAmount(-300)} 
+            aria-label="Previous"
+            disabled={progress === 0}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          
+          <div className={styles.progressRing}>
+            <svg viewBox="0 0 36 36" className={styles.circularChart}>
+              <path className={styles.circleBg} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path className={styles.circle} strokeDasharray={`${progress * 100}, 100`} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+          </div>
+
+          <button 
+            className={styles.ctrlBtn} 
+            onClick={() => scrollByAmount(300)} 
+            aria-label="Next"
+            disabled={progress >= 0.99}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
       </div>
     </section>
   );
