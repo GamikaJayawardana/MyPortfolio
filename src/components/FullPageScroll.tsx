@@ -24,6 +24,32 @@ export default function FullPageScroll({ children }: { children: React.ReactNode
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
       if (isMobile) return;
+
+      // Find if we are scrolling inside a scrollable container
+      let target = e.target as HTMLElement | null;
+      let isScrollable = false;
+      let isAtTop = true;
+      let isAtBottom = true;
+
+      while (target && target !== document.body) {
+        const style = window.getComputedStyle(target);
+        if (style.overflowY === 'auto' || style.overflowY === 'scroll') {
+          if (target.scrollHeight > target.clientHeight) {
+            isScrollable = true;
+            if (target.scrollTop > 0) isAtTop = false;
+            // Use a 1px tolerance for subpixel rendering issues
+            if (Math.ceil(target.scrollTop + target.clientHeight) < target.scrollHeight - 1) isAtBottom = false;
+            break;
+          }
+        }
+        target = target.parentElement;
+      }
+
+      if (isScrollable) {
+        if (e.deltaY > 0 && !isAtBottom) return; // Allow native scroll down
+        if (e.deltaY < 0 && !isAtTop) return; // Allow native scroll up
+      }
+
       e.preventDefault();
       if (e.deltaY > 20)       goToPage(curRef.current + 1);
       else if (e.deltaY < -20) goToPage(curRef.current - 1);

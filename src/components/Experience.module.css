@@ -46,7 +46,7 @@
   flex-direction: column;
   gap: 4rem;
   overflow-y: auto;
-  padding-right: 1rem;
+  padding: 0.5rem 1rem 0.5rem 0.25rem;
   /* hide scrollbar */
   scrollbar-width: none;
 }
@@ -77,15 +77,39 @@
   position: relative;
 }
 
-/* Vertical line */
-.timeline::before {
+/* Vertical line track */
+.timeline::after {
   content: "";
   position: absolute;
   top: 10px;
   bottom: 0;
   left: 5px; /* align with center of node (12px width / 2 - 1px) */
   width: 2px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  z-index: 0;
+}
+
+/* Active vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 5px;
+  width: 2px;
+  background: var(--gold, #c9a84c);
+  z-index: 1;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+:global(.is-active) .timeline::before {
+  animation: drawLine 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes drawLine {
+  to { transform: scaleY(1); }
 }
 
 .timelineItem {
@@ -102,13 +126,70 @@
 .timelineNode {
   position: absolute;
   left: 0;
-  top: 6px;
+  top: 24px; /* adjusted to align with spotlight card */
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: #0d0d0d;
-  border: 2px solid var(--gold, #c9a84c);
+  border: 2px solid rgba(255, 255, 255, 0.15);
   z-index: 2;
+  transition: all 0.3s ease;
+}
+
+:global(.is-active) .timelineItem:nth-child(1) .timelineNode { animation: lightNode 0.4s forwards 0.8s; }
+:global(.is-active) .timelineItem:nth-child(2) .timelineNode { animation: lightNode 0.4s forwards 1.0s; }
+:global(.is-active) .timelineItem:nth-child(3) .timelineNode { animation: lightNode 0.4s forwards 1.2s; }
+:global(.is-active) .timelineItem:nth-child(4) .timelineNode { animation: lightNode 0.4s forwards 1.4s; }
+
+@keyframes lightNode {
+  to {
+    border-color: var(--gold, #c9a84c);
+    background: var(--gold, #c9a84c);
+    box-shadow: 0 0 12px rgba(201, 168, 76, 0.6);
+  }
+}
+
+/* ── Spotlight Hover Card ── */
+.spotlightCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.spotlightCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(201, 168, 76, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spotlightCard:hover::before {
+  opacity: 1;
+}
+
+.spotlightCard:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateY(-2px);
+}
+
+.spotlightCard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .timelineContent {

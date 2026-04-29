@@ -1,9 +1,18 @@
 "use client";
 
+import { MouseEvent } from "react";
 import { education } from "@/data/education";
 import styles from "./Education.module.css";
 
 export default function Education() {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+  };
+
   return (
     <section id="education" className={styles.education}>
       <div className={styles.content}>
@@ -18,19 +27,24 @@ export default function Education() {
               {education.map((item) => (
                 <div key={item.id} className={styles.timelineItem}>
                   <div className={styles.timelineNode}></div>
-                  <div className={styles.timelineContent}>
-                    <div className={styles.itemHeader}>
-                      <h4 className={styles.itemDegree}>{item.degree}</h4>
-                      <span className={styles.itemDate}>{item.date}</span>
+                  <div 
+                    className={styles.spotlightCard} 
+                    onMouseMove={handleMouseMove}
+                  >
+                    <div className={styles.timelineContent}>
+                      <div className={styles.itemHeader}>
+                        <h4 className={styles.itemDegree}>{item.degree}</h4>
+                        <span className={styles.itemDate}>{item.date}</span>
+                      </div>
+                      <p className={styles.itemInstitution}>{item.institution}</p>
+                      {item.points.length > 0 && (
+                        <ul className={styles.itemPoints}>
+                          {item.points.map((point, idx) => (
+                            <li key={idx}>{point}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
-                    <p className={styles.itemInstitution}>{item.institution}</p>
-                    {item.points.length > 0 && (
-                      <ul className={styles.itemPoints}>
-                        {item.points.map((point, idx) => (
-                          <li key={idx}>{point}</li>
-                        ))}
-                      </ul>
-                    )}
                   </div>
                 </div>
               ))}

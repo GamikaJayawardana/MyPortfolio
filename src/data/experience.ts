@@ -35,34 +35,48 @@ export const leadershipExperience: ExperienceItem[] = [
     role: "Senior Editor",
     company: "Vide Club - University of Kelaniya",
     date: "May 2025 – April 2026",
-    points: [],
+    points: [
+      "Oversee design approvals and ensure the quality of visual content produced by the media unit.",
+      "Manage creative standards and support the design team in delivering impactful media."
+    ],
   },
   {
     id: "vide-design",
     role: "Head of Designs, KelaniSTEAM Avenue",
     company: "Vide Club - University of Kelaniya",
     date: "Dec 2024 – May 2025",
-    points: [],
+    points: [
+      "Lead the design team and oversee the creation of visual content for KelaniSTEAM initiatives.",
+      "Responsible for guiding designers, reviewing outputs, and ensuring consistent branding across all media."
+    ],
   },
   {
     id: "leo-relations",
     role: "External Relations Coordinator, Poverty and Hunger Avenue",
     company: "Leo Club of University of Kelaniya",
     date: "Sep 2024 – May 2025",
-    points: [],
+    points: [
+      "Lead external relations, managing outreach and corporate partnerships for impactful projects like Waste to Worth and Dirisawiya."
+    ],
   },
   {
     id: "medusa-design",
     role: "Head of Designs",
     company: "Medusa 1.0",
     date: "Aug 2024 – Dec 2024",
-    points: [],
+    points: [
+      "Led design efforts for MEDUSA 1.0, including the creation of the official logo and promotional materials.",
+      "Played a key role in the organising committee, contributing significantly to the event's visual identity."
+    ],
   },
   {
     id: "uok-robot-pr",
     role: "Assistant Public Relations Coordinator",
     company: "UOK Robot Battles",
     date: "Jun 2024 – Oct 2024",
-    points: [],
+    points: [
+      "Supported PR efforts for UOK Robot Battles 2k24, including event promotion, communication strategy, and audience engagement.",
+      "Helped build visibility and excitement around the event through effective outreach."
+    ],
   },
 ];
