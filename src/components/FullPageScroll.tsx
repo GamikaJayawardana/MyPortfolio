@@ -74,7 +74,12 @@ export default function FullPageScroll({ children }: { children: React.ReactNode
         style={{ transform: `translateY(calc(${-currentPage} * 100vh))` }}
       >
         {children.map((child, i) => (
-          <div key={i} className={styles.page}>{child}</div>
+          <div 
+            key={i} 
+            className={`${styles.page} ${i === currentPage ? styles.pageActive : styles.pageInactive} ${i === currentPage ? "is-active" : ""}`}
+          >
+            {child}
+          </div>
         ))}
       </div>
 

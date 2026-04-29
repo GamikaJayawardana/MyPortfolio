@@ -7,7 +7,8 @@
 /* ── Sliding track ─────────────────────────────── */
 .track {
   will-change: transform;
-  transition: transform 0.9s cubic-bezier(0.87, 0, 0.13, 1);
+  /* Use a premium cinematic cubic-bezier for a smooth glide */
+  transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .page {
@@ -15,6 +16,26 @@
   width: 100vw;
   position: relative;
   overflow: hidden;
+  will-change: transform, opacity, filter;
+  /* Sync the duration and easing with the track */
+  transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1), 
+              opacity 1.2s cubic-bezier(0.76, 0, 0.24, 1), 
+              filter 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.pageInactive {
+  /* Push inactive pages slightly into the background with a blur */
+  transform: scale(0.9);
+  opacity: 0.3;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.pageActive {
+  /* Bring active page to the foreground */
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0px);
 }
 
 /* ── Cinematic sweep overlay ───────────────────── */
@@ -23,39 +44,23 @@
   inset: 0;
   z-index: 200;
   pointer-events: none;
-  background: linear-gradient(135deg, #0a0a0a 40%, rgba(201, 168, 76, 0.06) 100%);
+  background: #000;
   opacity: 0;
-  transform: scaleY(0);
-  transform-origin: top center;
 }
 
 .sweepActive {
-  animation: sweepAnim 0.9s cubic-bezier(0.87, 0, 0.13, 1) forwards;
+  animation: sweepAnim 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
 }
 
 @keyframes sweepAnim {
   0% {
     opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top center;
   }
-
-  35% {
-    opacity: 0.55;
-    transform: scaleY(1);
-    transform-origin: top center;
+  50% {
+    opacity: 0.15; /* Just a very subtle dark flash to blend the transition */
   }
-
-  65% {
-    opacity: 0.55;
-    transform: scaleY(1);
-    transform-origin: bottom center;
-  }
-
   100% {
     opacity: 0;
-    transform: scaleY(0);
-    transform-origin: bottom center;
   }
 }
 
