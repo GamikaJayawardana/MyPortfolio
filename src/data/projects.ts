@@ -10,9 +10,21 @@ export interface ProjectItem {
   github?: string;
   download?: string;
   video?: string;
+  scrollableImage?: string;
 }
 
 export const projects: ProjectItem[] = [
+  {
+    id: "expenses-tracker-bot",
+    title: "Expenses Tracker Whatsapp Bot",
+    date: "Mar 2026 – Apr 2026",
+    shortDesc: "Real-time personal finance application integrated directly into WhatsApp via the Meta Cloud API.",
+    fullDesc: "Designed and developed a real-time personal finance application integrated directly into WhatsApp via the Meta Cloud API. The system utilizes a high-speed LLM architecture to process unstructured natural language inputs and execute complex financial tracking operations.\n\nKey Technical Contributions:\n\n🔹NLP Routing Engine: Engineered a system prompt using Groq (Llama 3.3 70B) to accurately parse conversational text into structured, multi-action JSON intents (e.g., handling simultaneous expense logging and account transfers).\n🔹System Resilience: Developed a robust backend utilizing Python and FastAPI, implementing custom duplicate webhook detection to ensure strict data consistency against Meta API retry floods.\n🔹State Management: Integrated Asynchronous MongoDB (Motor) for efficient, non-blocking data storage and historical record management.\n🔹Dynamic Analysis: Implemented a querying engine that parses historical database records to calculate running balances and generate comprehensive financial summaries on demand.",
+    image: "https://opengraph.githubassets.com/1/GamikaJayawardana/Expenses-Tracker-Whatsapp-Bot",
+    tags: ["Python", "FastAPI", "MongoDB", "Groq LLM", "Meta API"],
+    github: "https://github.com/GamikaJayawardana/Expenses-Tracker-Whatsapp-Bot",
+    scrollableImage: "/projects/WA-Wallet.jpeg",
+  },
   {
     id: "colabgo",
     title: "ColabGO: Ghost Operator & Resource Dashboard",
@@ -67,4 +79,5 @@ export const projects: ProjectItem[] = [
     github: "https://github.com/GamikaJayawardana/CarRentalSystem-RideXpress-V3",
     video: "https://www.linkedin.com/posts/gamikakj_visualprogramming-dotnet-csharp-activity-7372549883360227328-mFIF?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEeBCNwBruCrziSype41ni7RzTR7RHog2Sk",
   }
+
 ];

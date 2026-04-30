@@ -49,6 +49,16 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
           <h2 className={styles.sectionTitle}>Overview</h2>
           <p className={styles.fullDesc}>{project.fullDesc}</p>
 
+          {project.scrollableImage && (
+            <div className={styles.scrollableImageWrap}>
+              <img 
+                src={project.scrollableImage} 
+                alt={`${project.title} - Scrollable View`} 
+                className={styles.scrollImage} 
+              />
+            </div>
+          )}
+
           <div className={styles.links}>
             {project.link && (
               <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.btn}>
