@@ -6,15 +6,18 @@
   position: relative;
   overflow: hidden;
   background: #0d0d0d;
+  /* Reserve space for the fixed navbar so the header never slips under it */
+  padding-top: var(--nav-height, 72px);
 }
 
 .content {
   width: 90%;
   max-width: 1400px;
-  max-height: 85vh;
+  max-height: 88vh;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  min-height: 0;
   z-index: 1;
 }
 
@@ -146,6 +149,43 @@
 /* ── Mobile Floating Controls ── */
 .mobileControls {
   display: none;
+}
+
+/* ── Short viewport / high zoom (desktop) ──────────────── */
+@media (min-width: 769px) and (max-height: 860px) {
+  .content {
+    gap: 1.75rem;
+  }
+  .title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  .imageWrap {
+    height: 160px;
+  }
+  .cardContent {
+    padding: 1.25rem;
+  }
+  .cardIssuer {
+    margin-bottom: 0.5rem;
+  }
+  .carousel {
+    padding-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 769px) and (max-height: 720px) {
+  .content {
+    gap: 1.25rem;
+  }
+  .title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+  }
+  .imageWrap {
+    height: 130px;
+  }
+  .cardTitle {
+    font-size: 1.05rem;
+  }
 }
 
 @media (max-width: 768px) {
