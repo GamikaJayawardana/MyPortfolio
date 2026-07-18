@@ -16,18 +16,21 @@
   width: 100vw;
   position: relative;
   overflow: hidden;
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity;
   /* Sync the duration and easing with the track */
-  transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1), 
-              opacity 1.2s cubic-bezier(0.76, 0, 0.24, 1), 
-              filter 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              opacity 1.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+/*
+ * Inactive pages recede via scale + opacity only. A blur() here was applied to
+ * all 7 off-screen sections at once, which left the screen looking blurred
+ * whenever a page lingered on screen (e.g. during the route change to a
+ * project detail page) and cost 8 full-viewport composited blur layers.
+ */
 .pageInactive {
-  /* Push inactive pages slightly into the background with a blur */
   transform: scale(0.9);
   opacity: 0.3;
-  filter: blur(8px);
   pointer-events: none;
 }
 
@@ -35,7 +38,6 @@
   /* Bring active page to the foreground */
   transform: scale(1);
   opacity: 1;
-  filter: blur(0px);
 }
 
 /* ── Cinematic sweep overlay ───────────────────── */

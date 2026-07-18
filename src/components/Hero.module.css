@@ -115,6 +115,10 @@
   padding: 0.6rem 1.4rem;
   font-size: 0.8125rem;
   font-weight: 600;
+  /* Normalised so <button> and <a> variants render identically */
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #ffffff;

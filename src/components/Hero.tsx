@@ -1,6 +1,13 @@
+"use client";
+
+import { usePageContext, PAGE_SECTIONS } from "@/context/PageContext";
 import styles from "./Hero.module.css";
 
+const sectionIndex = (id: string) => PAGE_SECTIONS.findIndex((s) => s.id === id);
+
 export default function Hero() {
+  const { goToPage } = usePageContext();
+
   return (
     <section id="home" className={styles.hero}>
       {/* Background layers */}
@@ -18,10 +25,20 @@ export default function Hero() {
         <p className={styles.subtitle}>
           Bridging intelligent algorithms with robust full‑stack solutions.
         </p>
+        {/*
+          These must drive the full-page scroll via goToPage. A plain #hash
+          anchor makes the browser scroll the fixed, overflow:hidden container
+          instead — which leaves the section transform out of sync and, with no
+          scrollbar available, no way to scroll back.
+        */}
         <div className={styles.ctas}>
-          <a href="#projects" className={styles.btnOutline}>
+          <button
+            type="button"
+            onClick={() => goToPage(sectionIndex("projects"))}
+            className={styles.btnOutline}
+          >
             View My Projects
-          </a>
+          </button>
           <a
             href="/CV/GamikaJayawardhana.pdf"
             className={styles.btnOutline}
@@ -29,9 +46,13 @@ export default function Hero() {
           >
             Download Resume
           </a>
-          <a href="#contact" className={styles.btnOutline}>
+          <button
+            type="button"
+            onClick={() => goToPage(sectionIndex("contact"))}
+            className={styles.btnOutline}
+          >
             Contact Me
-          </a>
+          </button>
         </div>
       </div>
 

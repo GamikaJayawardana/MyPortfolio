@@ -8,8 +8,26 @@ export default function FullPageScroll({ children }: { children: React.ReactNode
   const { currentPage, isTransitioning, goToPage } = usePageContext();
   const curRef = useRef(currentPage);
   const touchStartY = useRef(0);
+  const outerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { curRef.current = currentPage; }, [currentPage]);
+
+  /* ── Keep the fixed container pinned ──
+     Sections are positioned purely by the track's transform. If anything ever
+     scrolls this container (a #hash link, focusing an off-screen element, the
+     browser restoring a hash on load) the layout desyncs from currentPage —
+     and since overflow is hidden there is no scrollbar to recover with. */
+  useEffect(() => {
+    const el = outerRef.current;
+    if (!el) return;
+    const pin = () => {
+      if (el.scrollTop !== 0) el.scrollTop = 0;
+      if (el.scrollLeft !== 0) el.scrollLeft = 0;
+    };
+    pin();
+    el.addEventListener("scroll", pin, { passive: true });
+    return () => el.removeEventListener("scroll", pin);
+  }, []);
 
   /* ── Mobile Check ── */
   const [isMobile, setIsMobile] = useState(false);
@@ -90,7 +108,7 @@ export default function FullPageScroll({ children }: { children: React.ReactNode
   }, [goToPage, isMobile]);
 
   return (
-    <div className={styles.outer}>
+    <div className={styles.outer} ref={outerRef}>
       {/* Transition sweep overlay */}
       <div className={`${styles.sweep} ${isTransitioning ? styles.sweepActive : ""}`} aria-hidden />
 
