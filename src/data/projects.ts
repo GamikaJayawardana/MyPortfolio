@@ -78,6 +78,56 @@ export const projects: ProjectItem[] = [
     tags: ["C#", ".NET Framework", "MS SQL Server", "RDLC Reports"],
     github: "https://github.com/GamikaJayawardana/CarRentalSystem-RideXpress-V3",
     video: "https://www.linkedin.com/posts/gamikakj_visualprogramming-dotnet-csharp-activity-7372549883360227328-mFIF?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEeBCNwBruCrziSype41ni7RzTR7RHog2Sk",
+  },
+  {
+    id: "unibodima",
+    title: "BoardingFor.me (UniBodima)",
+    date: "2026",
+    shortDesc: "A full-stack housing marketplace that connects Sri Lankan university students with verified boarding places.",
+    fullDesc: "A full-stack housing marketplace that connects Sri Lankan university students with verified boarding places, hostels, and apartments near their campuses. Students can browse listings by university, post their own boarding offers or housing requests, and manage everything from a personal dashboard — while admins moderate content through a dedicated back office.\n\nTech Stack:\nNext.js 16, TypeScript, MongoDB, Tailwind CSS v4, NextAuth.js.",
+    image: "https://opengraph.githubassets.com/1/GamikaJayawardana/UniBodima",
+    tags: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS"],
+    github: "https://github.com/GamikaJayawardana/UniBodima",
+    link: "https://www.boardingfor.me"
+  },
+  {
+    id: "medops-ai",
+    title: "MedOps AI — Hospital Operations Control Centre",
+    date: "2026",
+    shortDesc: "A real-time hospital operations control centre featuring an AI multi-agent analysis and live ward telemetry.",
+    fullDesc: "A real-time hospital operations control centre. A FastAPI backend streams live ward telemetry over a single WebSocket to a Next.js dashboard, where an administrator can trigger an AI multi-agent analysis and approve or reject proposed staff-reallocation plans (human-in-the-loop).\n\nKey features include an analog pressure gauge, colour-coded ward grid, live trend chart, and a responsive design tuned for Core Web Vitals.",
+    image: "https://opengraph.githubassets.com/1/GamikaJayawardana/MedOps-AI",
+    tags: ["FastAPI", "Next.js", "WebSocket", "LangGraph", "Python"],
+    github: "https://github.com/GamikaJayawardana/MedOps-AI"
+  },
+  {
+    id: "harvestlink",
+    title: "HarvestLink: Agricultural Intelligence Platform",
+    date: "2025",
+    shortDesc: "A distributed, microservices-based system empowering the agricultural sector through data-driven insights.",
+    fullDesc: "HarvestLink is a distributed, microservices-based system designed to empower the agricultural sector through data-driven insights. The platform combines a robust Java/Spring Boot backend with a Python-powered machine learning engine to provide real-time price predictions and comprehensive management tools.\n\nBuilt using a Microservices Architecture for scalability and fault tolerance.",
+    image: "https://opengraph.githubassets.com/1/GamikaJayawardana/HarvestLink",
+    tags: ["Java", "Spring Boot", "Python", "Microservices", "Machine Learning"],
+    github: "https://github.com/GamikaJayawardana/HarvestLink"
+  },
+  {
+    id: "booking-platform-restapi",
+    title: "Booking Platform REST API",
+    date: "2025",
+    shortDesc: "A robust REST API designed to power a booking platform.",
+    fullDesc: "A comprehensive REST API built to handle the core operations of a modern booking platform, providing robust endpoints for managing bookings, users, and resources.",
+    image: "https://opengraph.githubassets.com/1/GamikaJayawardana/Booking-platform-RESTAPI",
+    tags: ["REST API", "Backend"],
+    github: "https://github.com/GamikaJayawardana/Booking-platform-RESTAPI"
+  },
+  {
+    id: "diabetics-prediction-ml",
+    title: "Diabetes Prediction ML",
+    date: "2025",
+    shortDesc: "A full-stack web application predicting a patient's diabetes risk using XGBoost and SHAP.",
+    fullDesc: "A full-stack web application that predicts a patient's diabetes risk from clinical measurements and explains *why* using SHAP (SHapley Additive exPlanations). The system combines a tuned XGBoost classifier with a React dashboard that visualizes risk probability, feature impact, and vital-sign distributions.\n\nBackend: FastAPI, XGBoost, SHAP.\nFrontend: React, Vite, Recharts.\nInfra: Docker, Nginx, AWS ECR.",
+    image: "https://opengraph.githubassets.com/1/GamikaJayawardana/Diabetics-Prediction-ML",
+    tags: ["Machine Learning", "FastAPI", "React", "Docker", "XGBoost"],
+    github: "https://github.com/GamikaJayawardana/Diabetics-Prediction-ML"
   }
-
 ];

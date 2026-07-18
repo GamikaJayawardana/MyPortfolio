@@ -12,7 +12,7 @@ export const certificates: CertificateItem[] = [
     title: "Introduction to FastAPI and Backend Development Fundamentals",
     issuer: "Packt",
     date: "Issued Mar 2026",
-    image: "https://media.licdn.com/dms/image/v2/D562DAQHyJ5-sj_40rQ/profile-treasury-document-images_1280/B56Z1tQ90cJkAU-/1/1775654659832?e=1778112000&v=beta&t=65wmBiFHLdHh61zHMXynY60ynS8QtAzUuPsJsWgwn8k"
+    image: "https://media.licdn.com/dms/image/v2/D562DAQHyJ5-sj_40rQ/profile-treasury-document-cover-images_1920/B56Z1tQ90cJkBM-/0/1775654660433?e=1784980800&v=beta&t=foh4LdOrGmjoR4_NF6mX601kxzpizUt9xdEAVuTuDF4"
   },
   {
     id: "aws-ai",
